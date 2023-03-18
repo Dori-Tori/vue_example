@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        h1 {
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            border: 1px solid blue;
+            background-color: yellow;
+        }
+        
+        span {
+            color: blue;
+            font-weight: bold;
+        }
+        
+        ul li {
+            list-style-type: none;
+            height: 50px;
+        }
+    </style>
+    <title>v-if</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <ul>
+            <li><label><input type="checkbox" v-model="myVis">위의 내용에 동의 합니다.</label></li>
+            <li><button v-if="myVis">다운로드</button><button v-else="myVis"> 동의에 체크</button></li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myVis: false
+            }
+
+        })
+    </script>
+</body>
+
+</html>

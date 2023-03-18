@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{10*50}}</h2>
+        <h2>{{name + "님 만나서 반가워요~"}}</h2>
+        <h2>{{width * 3}}</h2>
+        <h2>{{myText.substr(5,5)}}</h2>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: '홍길동',
+                width: 11,
+                myText: 'Good Luck!'
+            }
+        })
+    </script>
+
+</body>
+
+</html>

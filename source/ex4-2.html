@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>배열</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{mArr}}</h2>
+        <h2>{{mArr[0]}}</h2>
+        <h2>{{mArr2}}</h2>
+        <h2>{{mArr2[1] + mArr2[2]}}</h2>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                mArr: ['봄', '여름', '가을', '겨울'],
+                mArr2: [10, 20, 30, 40]
+            }
+        })
+    </script>
+
+</body>
+
+</html>

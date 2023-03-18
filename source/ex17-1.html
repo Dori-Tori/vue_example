@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>computed</title>
+    <style>
+        h3 {
+            color: magenta;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <h3>문자를 입력하면 그 문자를 포함한 항목만 표시하는 예제</h3>
+    <div id="app">
+        <input type="text" v-model="findWord">
+        <ul>
+            <li v-for="item in Items">{{item}}</li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                findWord: '',
+                items: ['장미', '개나리', '진달래', '코스모스', '해바라기']
+            },
+            computed: {
+                Items: function() {
+                    if (this.findWord) {
+                        return this.items.filter(function(value) {
+                            return (value.indexOf(this.findWord) > -1);
+                        }, this);
+
+                    } else {
+                        return this.items;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

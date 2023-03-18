@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        span {
+            color: blue;
+            font-weight: bold;
+        }
+        
+        ul li {
+            list-style-type: none
+        }
+    </style>
+    <title>v-model</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <select v-model="myColor">
+            <option disabled value="">색상선택</option>
+            <option>red</option>
+            <option>skyblue</option>
+            <option>blue</option>
+            <option>magenta</option>
+            <option>lime</option>
+        </select>
+        <h2 v-bind:style="{color:myColor}">선택한 색상은 {{myColor}}입니다.</h2>
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myColor: ''
+            }
+        })
+    </script>
+</body>
+
+</html>

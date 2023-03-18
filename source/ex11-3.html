@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>v-show</title>
+    <style>
+        h3 {
+            color: magenta;
+        }
+        
+        input {
+            margin: 10px;
+        }
+        
+        span {
+            color: blue;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h3>활용대상자</h3>
+        <form>
+            <input type="radio" name="user" v-on:click="met"> 기업
+            <input type="radio" name="user" v-on:click="met"> 교수자
+            <input type="radio" name="user" v-on:click="met"> 미취업자
+            <input type="radio" name="user" v-on:click="met"> 기타
+
+            <div v-if="select">
+                <input type="radio" name="user2" v-on:click="met2"> 공공기관
+                <input type="radio" name="user2" v-on:click="met2"> 공공단체
+                <input type="radio" name="user2" v-on:click="met2"> 소속기관
+            </div>
+
+            <div v-show="select2">
+                <input type="checkbox" v-model="select3"> 동의
+                <button v-show="select3">다운로드</button>
+            </div>
+        </form>
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                select: false,
+                select2: false,
+                select3: false
+            },
+            methods: {
+                met: function() {
+                    this.select = !this.select;
+                },
+                met2: function() {
+                    this.select2 = !this.select2;
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

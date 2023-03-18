@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>computed</title>
+    <style>
+        h3 {
+            color: magenta;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <h3>남은 시간이 0이면 경고창을 띄우는 예제</h3>
+    <div id="app">
+        <button onclick="startTimer()">START</button>
+    </div>
+
+    <script>
+        function startTimer() {
+            this.restSec = 3;
+            this.timerObj = setInterval(() => {
+                countDown()
+            }, 1000)
+        }
+
+        function countDown() {
+            this.restSec--;
+            if (this.restSec <= 0) {
+                alert("Time Out");
+
+                clearInterval(this.timerObj);
+            }
+        }
+    </script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                R: 230,
+                G: 133,
+                B: 210
+            },
+            computed: {
+                mixColor: function() {
+                    var ans = "RGB(" + this.R + "," + this.G + "," + this.B + ")";
+                    return ans;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

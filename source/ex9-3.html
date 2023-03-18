@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        h1 {
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            border: 1px solid blue;
+            background-color: yellow;
+        }
+        
+        span {
+            color: blue;
+            font-weight: bold;
+        }
+        
+        ul li {
+            list-style-type: none
+        }
+    </style>
+    <title>v-on</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input v-on:keyup.enter.crtl="met" v-model="myTxt">
+        <p>{{myTxt}}</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myTxt: 'Good Luck!'
+            },
+            methods: {
+                met: function() {
+                    alert("Ctrl키와 enter키를 눌렸습니다.");
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        ul li {
+            list-style: none;
+        }
+    </style>
+    <title>v-bind:src</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li><img src="img.jpg"></li>
+            <li><img v-bind:src="imgName"></li>
+            <li><img :src="imgName"></li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                imgName: "img.jpg"
+            }
+        })
+    </script>
+
+</body>
+
+</html>

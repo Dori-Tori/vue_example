@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>computed</title>
+    <style>
+        h3 {
+            color: magenta;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <h3>적색, 녹새, 청색 슬라이더를 움직여 색 표시</h3>
+    <div id="app">
+        <p v-bind:style="{backgroundColor:mixColor}">{{mixColor}}</p>
+        <input type="range" v-model="R" min="0" max="255"><br>
+        <input type="range" v-model="G" min="0" max="255"><br>
+        <input type="range" v-model="B" min="0" max="255"><br>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                R: 230,
+                G: 133,
+                B: 210
+            },
+            computed: {
+                mixColor: function() {
+                    var ans = "RGB(" + this.R + "," + this.G + "," + this.B + ")";
+                    return ans;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

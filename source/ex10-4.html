@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        h1 {
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            border: 1px solid blue;
+            background-color: yellow;
+        }
+        
+        span {
+            color: blue;
+            font-weight: bold;
+        }
+        
+        ul li {
+            list-style-type: none;
+            height: 50px;
+        }
+        
+        ul {
+            border: 1px solid #333;
+            width: 150px;
+        }
+        
+        p {
+            color: magenta;
+            font-size: 2em;
+        }
+        
+        h4 {
+            color: magenta;
+            font-size: 2em;
+        }
+        
+        span {
+            color: blue
+        }
+    </style>
+    <title>v-if</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>값을 입력하세요</h2>
+        번호입력 : <input type="text" v-model="myInput">
+        <ul>
+            <li>1. 조회 </li>
+            <li>2. 입금 </li>
+            <li>3. 출금 </li>
+            <li>4. 이체 </li>
+        </ul>
+        <h4 v-if="myInput==1"><span>조회</span>를 선택하셨습니다.</h4>
+        <h4 v-else-if="myInput==2"><span>입금</span>를 선택하셨습니다.</h4>
+        <h4 v-else-if="myInput==3"><span>출금</span>를 선택하셨습니다.</h4>
+        <h4 v-else-if="myInput==4"><span>이체</span>를 선택하셨습니다.</h4>
+        <h4 v-else-if="myInput==''"></h4>
+        <h4 v-else>잘못 누르셨습니다.</h4>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myInput: ''
+            }
+
+        })
+    </script>
+</body>
+
+</html>

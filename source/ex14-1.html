@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>v-for</title>
+    <style>
+        table {
+            text-align: center;
+        }
+        
+        h3 {
+            color: magenta;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h3> 성적표 </h3>
+        <table border>
+            <tr>
+                <th v-for="item in items">{{item}}</th>
+            </tr>
+            <tr v-for="line in rows">
+                <td v-for="item in line">{{item}}</td>
+            </tr>
+        </table>
+
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                items: ['name', '국어', '영어', '수학'],
+                rows: [
+                    ['홍길동', 100, 100, 100],
+                    ['고길동', 60, 65, 69],
+                    ['신짱아', 100, 99, 95]
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

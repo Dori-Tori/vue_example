@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        span {
+            color: blue;
+            font-weight: bold;
+        }
+        
+        ul li {
+            list-style-type: none
+        }
+    </style>
+    <title>v-model</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li>
+                <lable><input type="radio" value="토끼1.jpg" v-model="imgFile">토끼1</lable>
+            </li>
+            <li>
+                <lable><input type="radio" value="토끼2.jpg" v-model="imgFile">토끼2</lable>
+            </li>
+        </ul>
+        <p><span>{{imgFile}}</span>를 선택했습니다.</p>
+        <img v-bind:src="imgFile">
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                imgFile: ''
+            }
+        })
+    </script>
+</body>
+
+</html>

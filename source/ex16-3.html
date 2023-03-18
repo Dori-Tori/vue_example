@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>computed</title>
+    <style>
+        h3 {
+            color: magenta;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <h3>남은 글자 수</h3>
+    <div id="app">
+        <p>여기에 문의 사항을 적어주세요(30자이상)</p>
+        <textarea v-model="myTxt" rows="5" cols="20"></textarea>
+        <p v-bind:style="{color:Color2}">남은 글자는 {{remain}}</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myTxt: '안녕하세요'
+            },
+            computed: {
+                remain: function() {
+                    return 30 - this.myTxt.length;
+                },
+                Color2: function() {
+                    var hue = 'blue';
+                    if (this.remain < 10) hue = 'orange';
+                    if (this.remain < 1) hue = 'red';
+                    return hue;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

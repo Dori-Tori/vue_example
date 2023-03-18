@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>v-for</title>
+    <style>
+        table {
+            text-align: center;
+        }
+        
+        h3 {
+            color: magenta;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <ul>
+            <li v-for="item in myArr">{{item}}</li>
+        </ul>
+        <button v-on:click="Sort(myArr)">오름차순 정렬</button>
+        <button v-on:click="Sort2(myArr)">내림차순 정렬</button>
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myArr: [20, 10, 50, 30, 40]
+            },
+            methods: {
+                Sort: function(li) {
+                    li.sort(function(a, b) {
+                        return (a < b ? -1 : 1);
+                    });
+                },
+                Sort2: function(li) {
+                    li.sort(function(a, b) {
+                        return (a > b ? -1 : 1);
+                    });
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

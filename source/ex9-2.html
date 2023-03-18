@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        h1 {
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            border: 1px solid blue;
+            background-color: yellow;
+        }
+        
+        span {
+            color: blue;
+            font-weight: bold;
+        }
+        
+        ul li {
+            list-style-type: none
+        }
+    </style>
+    <title>v-on</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{cnt}}</h1>
+        <button v-on:click="methodCnt(2)"> 2씩 증 가 </button>
+        <button @click="methodCnt(5)"> 5씩 증 가 </button>
+        <button v-on:click="methodCnt(10)"> 10씩 증 가 </button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                cnt: 0
+            },
+            methods: {
+                methodCnt: function(para) {
+                    this.cnt += para;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

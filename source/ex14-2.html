@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>v-for</title>
+    <style>
+        table {
+            text-align: center;
+        }
+        
+        h3 {
+            color: magenta;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in myArr">{{item}}</li>
+        </ul>
+        <button v-on:click="add">마지막 추가</button>
+        <button v-on:click="add2(3)">세번째 추가</button>
+        <button v-on:click="add3(0)">첫번째 삭제</button>
+        <button v-on:click="change(1)">두번째 변경</button>
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myArr: ['일', '이', '삼', '사', '오']
+            },
+            methods: {
+                add: function() {
+                    this.myArr.push('[추가]');
+                },
+                add2: function(index) {
+                    this.myArr.splice(index, 0, '[중간추가]');
+                },
+                add3: function(index) {
+                    this.myArr.splice(index, 1);
+                },
+                change: function(index) {
+                    this.myArr.splice(index, 0, '[변경]');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

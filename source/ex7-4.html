@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        span {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+    <title>v-model</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ui>
+            <li><label><input type="checkbox" value="" v-model="myAgr">위의 내용에 동의</label></li>
+            <li><button v-bind:disabled="myAgr==false">다음으로</button> </li>
+        </ui>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myAgr: false
+            }
+        })
+    </script>
+</body>
+
+</html>

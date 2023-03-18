@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{myTxt}}</p>
+        <p v-text="myTxt"></p>
+        <p v-html="myTxt"></p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myTxt: '<h1>Nice to meet you!</h1>'
+            }
+        })
+    </script>
+
+</body>
+
+</html>

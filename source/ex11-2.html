@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>v-show</title>
+    <style>
+        h3 {
+            color: magenta;
+        }
+        
+        span {
+            color: blue;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h3>의견제출</h3>
+        <textarea v-model="msg"></textarea><br>
+        <button v-show="msg">제출합니다.</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                msg: ''
+            }
+        })
+    </script>
+</body>
+
+</html>

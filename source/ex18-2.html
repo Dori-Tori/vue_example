@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>computed</title>
+    <style>
+        .score {
+            border: 1px solid #000;
+            color: blue;
+            font-weight: bold;
+            background: aqua;
+        }
+        
+        .warning {
+            background: yellow;
+            color: purple
+        }
+        
+        p {
+            color: magenta;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        원본메시지 : <input type="text" v-model="message"><br><br>
+        <button v-on:click="met">글자뒤집기</button><button v-on:click="met2">다시 시작</button>
+        <p v-show="status"> 뒤집히도록 계산된 메시지 : <span>"{{reversedMessage}}"</span></p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'haha',
+                status: false
+            },
+            methods: {
+                met: function() {
+                    this.status = true;
+                },
+                met2: function() {
+                    this.status = false;
+                    this.message = '';
+                }
+            },
+            computed: {
+                reversedMessage: function() {
+                    return this.message.split('').reverse().join('')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

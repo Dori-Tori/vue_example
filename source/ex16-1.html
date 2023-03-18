@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>computed</title>
+    <style>
+        h3 {
+            color: magenta;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h3>할인액 구하기(11%할인)</h3>
+        <input type="number" v-model.number="price">원<br>
+        <p>할인된 금액 : {{calculPrice}} 원</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                price: 100
+            },
+            computed: {
+                calculPrice: function() {
+                    return (this.price - this.price * 0.11)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        span {
+            color: blue;
+            font-weight: bold;
+        }
+        
+        ul li {
+            list-style-type: none
+        }
+    </style>
+    <title>v-model</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>선택과목은?</h2>
+        <ul>
+            <li><label><input type="radio" value="국어" v-model="mySelect">국어</label></li>
+            <li><label><input type="radio" value="영어" v-model="mySelect">영어</label></li>
+            <li><label><input type="radio" value="수학" v-model="mySelect">수학</label></li>
+            <li><label><input type="radio" value="사회" v-model="mySelect">사회</label></li>
+            <li><label><input type="radio" value="과학" v-model="mySelect">과학</label></li>
+        </ul>
+        <span>{{mySelect}}</span>를 선택했습니다.
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                mySelect: '선택과목'
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>v-for</title>
+    <style>
+        button {
+            color: magenta;
+            border: 1px solid skyblue;
+            background: yellow;
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <button v-on:click="fun">짝수만나타내기</button>
+            <li v-for="item in myArr">{{item}}</li>
+        </ul>
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myArr: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+            },
+            methods: {
+                fun: function() {
+                    this.myArr = this.myArr.filter(
+                        function(val) {
+                            return val % 2 == 0;
+                        }
+                    );
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

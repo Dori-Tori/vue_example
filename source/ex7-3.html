@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        span {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+    <title>v-model</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ui>
+            <li>
+                <lavle><input type="checkbox" value="스파게티" v-model="myChk">스파게티</lavle>
+            </li>
+            <li>
+                <lavle><input type="checkbox" value="리조또" v-model="myChk">리조또</lavle>
+            </li>
+            <li>
+                <lavle><input type="checkbox" value="피자" v-model="myChk">피자</lavle>
+            </li>
+
+        </ui>
+        <h3>선택한 메뉴는 <span>{{myChk}}</span> 입니다.</h3>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myChk: []
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        ul li {
+            list-style: none;
+        }
+    </style>
+    <title>v-bind:href</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li><a href="http://www.naver.com">네이버링크 지정</a></li>
+            <li><a v-bind:href="myURL">네이버를 v-bind로 지정</a></li>
+            <li><a :href="myURL">v-bind 생략</a></li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myURL: 'http://naver.com'
+            }
+        })
+    </script>
+
+</body>
+
+</html>

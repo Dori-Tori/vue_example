@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>computed</title>
+    <style>
+        .score {
+            border: 1px solid #000;
+            color: blue;
+            font-weight: bold;
+            background: aqua;
+        }
+        
+        .warning {
+            background: yellow;
+            color: purple
+        }
+        
+        p {
+            color: magenta;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>1부터 100까지 가능합니다.</p>
+        <div>
+            점수 : <input type="text" class="score" v-model:number="score" v-bind:class="info">
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                score: 0
+            },
+            computed: {
+                info: function() {
+                    if (this.score >= 1 && this.score <= 100) {
+                        return {
+                            warning: false
+                        };
+                    } else {
+                        return {
+                            warning: true
+                        };
+                    }
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

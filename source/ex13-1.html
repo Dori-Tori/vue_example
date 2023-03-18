@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>v-for</title>
+    <style>
+        h3 {
+            color: magenta;
+        }
+        
+        li {
+            color: blue;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h3> 구구단(3단) </h3>
+        <ul>
+            <li v-for="n in 9">3 * {{n}} = {{n*3}}</li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+
+</html>
