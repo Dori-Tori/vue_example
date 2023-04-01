@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>watch</title>
+    <style>
+        .score {
+            border: 1px solid #000;
+            color: blue;
+            font-weight: bold;
+            background: aqua;
+        }
+        
+        .warning {
+            background: yellow;
+            color: purple
+        }
+        
+        p {
+            color: magenta;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h3>이름 입력하기</h3>
+        <p>제 이름은
+            <spn>{{fullName}}</spn>입니다.
+        </p>
+        - 이름 : <input type="text" v-model="firstName"><br> - 성 : <input type="text" v-model="lastName">
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                firstName: '',
+                lastName: '',
+                fullName: ''
+            },
+            watch: {
+                firstName: function(val) {
+                    this.fullName = this.lastName + '' + val;
+                },
+                lastName: function(val) {
+                    this.fullName = val + ' ' + this.firstName;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

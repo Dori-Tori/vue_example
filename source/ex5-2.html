@@ -15,7 +15,7 @@
 <body>
     <div id="app">
         <ul>
-            <li><img src="img.jpg"></li>
+            <li><img src="/img/img.jpg"></li>
             <li><img v-bind:src="imgName"></li>
             <li><img :src="imgName"></li>
         </ul>
@@ -24,7 +24,7 @@
         new Vue({
             el: '#app',
             data: {
-                imgName: "img.jpg"
+                imgName: "/img/img.jpg"
             }
         })
     </script>

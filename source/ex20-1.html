@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>transition</title>
+    <style>
+        h3 {
+            color: magenta
+        }
+        
+        p {
+            color: blue;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h3>체크박스로 애니메이션 효과</h3>
+        <label><input type="checkbox" v-model="isOK">변경</label>
+        <transition>
+            <p v-if="isOK">나타나기/사라지기 토글</p>
+        </transition>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                isOK: false
+            }
+        })
+    </script>
+    <style>
+        /* 나타나고 있을때와 사리질때는 0.5초 */
+        
+        .v-enter-active,
+        .v-leave-active {
+            transition: 0.5s;
+        }
+        
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+    </style>
+
+</body>
+
+</html>

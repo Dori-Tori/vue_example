@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>watch</title>
+    <style>
+        .score {
+            border: 1px solid #000;
+            color: blue;
+            font-weight: bold;
+            background: aqua;
+        }
+        
+        .warning {
+            background: yellow;
+            color: purple
+        }
+        
+        p {
+            color: magenta;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h4>남은 시간을 감지하여 표시하고 0초가 되면 경고창 제시</h4>
+        <p>앞으로 {{restSec}} 초</p>
+        <button v-on:click="startTimer">START</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                restSec: 3,
+                timerObj: null
+            },
+            watch: {
+                restSec: function() {
+                    if (this.restSec <= 0) {
+                        alert("Time Out");
+                        clearInterval(this.timerObj);
+                    }
+                }
+            },
+            methods: {
+                startTimer: function() {
+                    this.restSec = 3;
+                    this.timerObj = setInterval(() => {
+                        this.restSec--
+                    }, 1000);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

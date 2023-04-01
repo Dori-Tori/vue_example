@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>transition</title>
+    <style>
+        h2 {
+            color: magenta;
+        }
+        
+        .v-enter-active,
+        .v-leave-active {
+            transition: 0.5s;
+        }
+        
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>리스트 증감 애니매이션</h2>
+        <transition-group>
+            <li v-for="item in dataArray" v-bind:key="item">{{item}}</li>
+        </transition-group>
+        <label><input v-model="addItem" placeholder="추가할 리스트"></label>
+        <P></P>
+        <button v-on:click="addList">추가</button>
+        <P></P>
+        <button v-on:click="removeList"> 맨뒤 1개 삭제</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                dataArray: ['벚꽃', '산수유', '진달래', '철쭉'],
+                addItem: ''
+            },
+            methods: {
+
+                addList: function() {
+                    this.dataArray.push(this.addItem);
+                    this.addItem = '';
+                },
+                removeList: function() {
+                    var lastIdx = this.dataArray.length - 1;
+                    this.dataArray.splice(lastIdx, 1);
+                }
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>

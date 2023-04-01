@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>transition</title>
+    <style>
+        button {
+            background-color: antiquewhite;
+            color: blue;
+            font-size: 1.5em;
+            width: 200px;
+            padding: 10px;
+        }
+        
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity .5s;
+        }
+        
+        .fade-enter,
+        .fade-leave-to {
+            opacity: 0;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <transition name="fade">
+            <button v-if="off" @click="off = !off" key="off">off</button>
+            <button v-if="!off" @click="off = !off" key="on">on</button>
+        </transition>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                off: true
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>
