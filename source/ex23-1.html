@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Component</title>
+    <style>
+        h1 {
+            color: magenta;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <story></story>
+        <story></story>
+        <story></story>
+    </div>
+    <script>
+        Vue.component(
+            'story', {
+                template: '<h1>I am greate!</h1>'
+            }
+        );
+        new Vue({
+            el: '.container'
+        })
+    </script>
+
+</body>
+
+</html>
