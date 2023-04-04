@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Component</title>
+    <style>
+        h3 {
+            color: magenta;
+        }
+        
+        button {
+            width: 100px;
+            height: 100px;
+            font-size: 2em;
+            font-weight: bold;
+            border: 1px solid #ccc;
+        }
+        
+        .a {
+            background-color: bisque;
+            color: purple;
+        }
+        
+        .b {
+            background-color: yellow;
+            color: green;
+        }
+        
+        .c {
+            background-color: skyblue;
+            color: blue;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h3>컴포넌트 숫자 출력</h3>
+        <simple-counter></simple-counter>
+        <simple-counter1></simple-counter1>
+        <simple-counter2></simple-counter2>
+    </div>
+    <script>
+        Vue.component('simple-counter', {
+            template: '<button v-on:click="counter += 1" class="a">{{counter}}</button>',
+            data: function() {
+                return {
+                    counter: 0
+                }
+            }
+        });
+        Vue.component('simple-counter1', {
+            template: '<button v-on:click="counter2 += 2" class="b">{{counter2}}</button>',
+            data: function() {
+                return {
+                    counter2: 0
+                }
+            }
+        });
+        Vue.component('simple-counter2', {
+            template: '<button v-on:click="counter3 += 3" class="c">{{counter3}}</button>',
+            data: function() {
+                return {
+                    counter3: 0
+                }
+            }
+        });
+        new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+
+</html>
