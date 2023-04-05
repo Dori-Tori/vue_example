@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Component</title>
+    <style>
+        p {
+            width: 200px;
+            text-align: center;
+            font-size: 2em;
+            background-color: lightpink;
+            color: blue;
+            font-weight: bold;
+        }
+        
+        button {
+            width: 100px;
+            height: 100px;
+            font-size: 2em;
+            background-color: blueviolet;
+            color: lightpink;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{total}}</p>
+        <button-counter v-on:increament="increamentTotal"></button-counter>
+        <button-counter v-on:increament="increamentTotal"></button-counter>
+    </div>
+    <script>
+        Vue.component('button-counter', {
+            template: '<button v-on:click="increamentCounter">{{ counter }}</button>',
+            data: function() {
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                increamentCounter: function() {
+                    this.counter += 1;
+                    this.$emit('increament');
+                }
+            }
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+                total: 0
+            },
+            methods: {
+                increamentTotal: function() {
+                    this.total += 1;
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
