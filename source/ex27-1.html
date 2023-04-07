@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Component</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuex"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li>count : {{count}}</li>
+            <li>countAlias : {{countAlias}}</li>
+            <li>Localcount : {{localCount}}</li>
+            <li>count + Localcount : {{countPlusLocalState}}</li>
+        </ul>
+    </div>
+    <script>
+        const store = new Vuex.Store({
+            state: {
+                count: 1
+            },
+            mutations: {
+                increment(state) {
+                    state.count++
+                }
+            }
+
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+                localCount: 2
+            },
+            store,
+            computed: Vuex.mapState({
+                count: state => state.count,
+                countAlias: 'count',
+                countPlusLocalState(state) {
+                    return 0;
+                }
+            })
+        })
+    </script>
+
+</body>
+
+</html>

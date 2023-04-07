@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Component</title>
+    <style>
+        .app {
+            width: 300px;
+            margin: 0 auto;
+            background-color: lightblue;
+        }
+        
+        p {
+            text-align: center;
+        }
+        
+        button {
+            background-color: lightpink;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div class="app">
+        <p style="font-size:140px;color:blue;">{{votes}}</p>
+        <p>
+            <food @voted="vote" name=" 한 표 "></food>
+        </p>
+    </div>
+    <template id="food">
+        <button class="btn btn-default" @click="vote">{{name}}</button>
+    </template>
+    <script>
+        Vue.component('food', {
+            template: '#food',
+            props: ['name'],
+            methods: {
+                vote: function() {
+                    this.$emit('voted')
+                }
+            }
+        });
+        new Vue({
+            el: '.app',
+            data: {
+                votes: 0
+            },
+            methods: {
+                vote: function() {
+                    this.votes++;
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

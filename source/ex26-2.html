@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Component</title>
+    <style>
+        header {
+            color: magenta;
+            font-size: 1.5em;
+        }
+        
+        footer {
+            color: blue;
+            font-size: 1.5em;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <app-layout>
+            <header slot="header">제목입니다.</header>
+            <footer slot="footer">123-1234</footer>
+        </app-layout>
+    </div>
+    <script>
+        Vue.component('app-layout', {
+            template: `
+                    <div class="container">
+                        <header>
+                            <slot name="header">여기에 페이지 제목이 위치합니다.</slot>
+                        </header>
+                        <main>
+                            <slot></slot>
+                        </main>
+                        <footer>
+                            <slot name="footer">여기는 연락처 정보가 위치합니다.</slot>
+                        </footer>
+                    </div>`
+        });
+
+        new Vue({
+            el: '#app'
+        });
+    </script>
+
+</body>
+
+</html>
