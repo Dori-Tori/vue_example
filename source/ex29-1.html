@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Filter(toUpperCase)</title>
+    <style>
+        span {
+            font-size: 1.5em;
+            color: blue;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <span>{{"hello"|uppercase}}</span>
+        <hr>
+        <span>{{"hello"| capitaleze}}</span>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            filters: {
+                uppercase: function(text) {
+                    return text.toUpperCase();
+                },
+                capitaleze: function(text) {
+                    return text[0].toUpperCase() + text.slice(1);
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

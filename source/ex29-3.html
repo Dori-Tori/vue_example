@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Filter</title>
+    <style>
+        span {
+            font-size: 1.5em;
+            color: blue;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="/js/accounting.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <span>{{ price | currency }}</span>
+        <span>{{ price | currencyWon }}</span>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                price: 9999.87
+            },
+            filters: {
+                currency: function(text) {
+                    return accounting.formatMoney(text);
+                },
+                currencyWon: function(text) {
+                    return accounting.formatMoney(text, {
+                        symbol: '₩',
+                        format: '%s %v',
+                        precision: 0
+                    });
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

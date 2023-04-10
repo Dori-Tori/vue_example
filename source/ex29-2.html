@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Filter(toLowerCase)</title>
+    <style>
+        span {
+            font-size: 1.5em;
+            color: red;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <span>{{"HELLO"|lowercase}}</span>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            filters: {
+                lowercase: function(text) {
+                    return text.toLowerCase();
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
