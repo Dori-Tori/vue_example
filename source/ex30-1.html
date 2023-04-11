@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>To Do 리스트</title>
+    <style>
+        #container {
+            width: 400px;
+            margin: 0 auto;
+            background-color: antiquewhite;
+            padding: 15px;
+        }
+        
+        h2 {
+            color: magenta;
+        }
+        
+        .donestyle {
+            text-decoration: line-through;
+            color: lightgray;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <h2>To Do 리스트</h2>
+        <div id="app">
+            <div v-for="todo in todos">
+                <label>
+                    <input type="checkbox" v-model="todo.done" />
+                    <span v-bind:class="{donestyle:todo.done}">{{todo.text}}</span>
+                </label>
+            </div>
+            <p>{{remaining}} / {{todos.length}} 건 처리</p>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                todos: [{
+                    done: false,
+                    text: '빵사기'
+                }, {
+                    done: false,
+                    text: '커피사기'
+                }]
+            },
+            computed: {
+                remaining: function() {
+                    return this.todos.filter(function(val) {
+                        return val.done;
+                    }).length;
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
