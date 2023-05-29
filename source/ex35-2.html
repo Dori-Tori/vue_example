@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ex35-2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="show">{{name}}</button>
+        <br>
+        <p> 나이 : {{age}}</p>
+    </div>
+    <div id="test"></div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: '홍길동',
+                age: 20
+            },
+            beforeCreate: function() {
+                alert("BeforeCreate : " + this.name + "=> 즉 인스턴스 데이터에 접근할 수 없음");
+            },
+            created: function() {
+                alert("Created : " + this.name + " 은 " + this.age + "세");
+            },
+            mounted: function() {
+                alert("Mounted : 컴포넌트 , 템플릿, DOM이 모두 준비됨");
+            },
+            methods: {
+                show: function() {
+                    alert("완료 !");
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

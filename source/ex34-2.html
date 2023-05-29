@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>v-model.number</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li>
+                v-model : <input type="text" v-model="msg" v-on:keyup="changed">
+                <span>{{typeof msg}} : {{msg}}</span>
+            </li>
+            <li>
+                v-model.number : <input type="text" v-model.number="msgNumber" v-on:keyup="changed1">
+                <span>{{typeof msgNumber}} : {{msgNumber}}</span>
+            </li>
+        </ul>
+
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                msg: '',
+                msgNumber: ''
+            },
+            methods: {
+                changed: function(event) {
+                    console.log(typeof this.msg);
+                },
+                changed1: function(event) {
+                    console.log(typeof this.msgNumber);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

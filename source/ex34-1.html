@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>v-model.lazy</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li>
+                v-model : <input type="text" v-model="msg" v-on:keyup="changed">
+                <span>{{msg}}</span>
+            </li>
+            <li>
+                v-model.lazy : <input type="text" v-model.lazy="msgLazy" v-on:keyup="changed1">
+                <span>{{msgLazy}}</span>
+            </li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                msg: '',
+                msgLazy: ''
+            },
+            methods: {
+                changed: function(event) {
+                    console.log(this.msg);
+                },
+                changed1: function(event) {
+                    console.log(this.msgLazy);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
